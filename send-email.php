@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
 
     // Your email address where the form will be sent
-    $to = "youremail@example.com";  // Change this to your email address
+    $to = "tapocheknosok8@gmail.com";  // Change this to your email address
     $subject = "New Form Submission";
 
     // Create the email content
