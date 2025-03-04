@@ -576,26 +576,21 @@
           </p>
           <!-- Form -->
           <form class="mx-auto mb-4 max-w-sm text-left" name="wf-form-password" method="POST" action="send-email.php">
-            <div>
-              <label for="name-2" class="mb-1 font-medium">
-                Имя родителя
-              </label>
-              <input type="text" class="mb-4 block h-9 w-full rounded-md border border-solid  px-3 py-6 pl-4 text-sm text-black" />
-            </div>
-            <div class="mb-2">
-              <label for="name-2" class="mb-1 font-medium">
-                Телефон
-              </label>
-              <input type="text" class="mb-4 block h-9 w-full rounded-md border border-solid  px-3 py-6 pl-4 text-sm text-black" />
-            </div>
-            <div class="mb-5 md:mb-6 lg:mb-8">
-              <label for="field-3" class="mb-1 font-medium">
-                Электронная почта
-              </label>
-              <textarea placeholder="" maxlength="5000" name="field" class="mb-2.5 block h-auto min-h-32 w-full rounded-md border border-solid  p-3 text-sm text-black"></textarea>
-            </div>
-            <input type="submit" value="Отправить 💌" class="inline-block w-full cursor-pointer rounded-2xl bg-black px-6 py-3 text-center font-semibold text-white" />
-          </form>
+    <div>
+        <label for="parent_name" class="mb-1 font-medium">Имя родителя</label>
+        <input type="text" id="parent_name" name="parent_name" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
+    </div>
+    <div class="mb-2">
+        <label for="phone" class="mb-1 font-medium">Телефон</label>
+        <input type="text" id="phone" name="phone" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
+    </div>
+    <div class="mb-5 md:mb-6 lg:mb-8">
+        <label for="email" class="mb-1 font-medium">Электронная почта</label>
+        <textarea id="email" name="email" required maxlength="5000" class="mb-2.5 block h-auto min-h-32 w-full rounded-md border border-solid p-3 text-sm text-black"></textarea>
+    </div>
+    <input type="submit" value="Отправить 💌" class="inline-block w-full cursor-pointer rounded-2xl bg-black px-6 py-3 text-center font-semibold text-white" />
+</form>
+
         </div>
       </div>
     </div>
