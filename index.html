@@ -39,39 +39,61 @@
             </div>
           </nav>
           <!-- Mobile menu, show/hide based on menu open state. -->
-          <div class="lg:hidden hidden" role="dialog" aria-modal="true">
-            <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div id="mobile-menu" class="lg:hidden hidden" role="dialog" aria-modal="true">
+            <!-- Фон (бэкдроп) -->
             <div class="fixed inset-0 z-50"></div>
             <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-              <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                  <span class="sr-only">Your Company</span>
-                  <img class="h-8 w-auto" src="transparent_apple.png" alt="">
-                </a>
-                <button type="button" aria-label="Close menu" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                    <span class="sr-only">Close menu</span>
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                  
-              </div>
-              <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-gray-500/10">
-                  <div class="space-y-2 py-6">
-                    <a href="#levels" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Уровни</a>
-                    <a href="#formats" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Стоимость</a>
-                    <a href="#price" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Пакеты</a>
-                    <a href="#contacts" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Контакты</a>
-                    <a href="#form" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Бесплатный урок</a>
+                <div class="flex items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="h-8 w-auto" src="transparent_apple.png" alt="">
+                    </a>
+                    <button id="close-menu" type="button" aria-label="Close menu" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <a href="#levels" class="menu-link" style="display: block; padding: 8px 0;">Уровни</a>
+                            <a href="#formats" class="menu-link" style="display: block; padding: 8px 0;">Стоимость</a>
+                            <a href="#price" class="menu-link" style="display: block; padding: 8px 0;">Пакеты</a>
+                            <a href="#contacts" class="menu-link" style="display: block; padding: 8px 0;">Контакты</a>
+                            <a href="#form" class="menu-link" style="display: block; padding: 8px 0;">Бесплатный урок</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menu = document.getElementById("mobile-menu");
+                const closeButton = document.getElementById("close-menu");
+                const menuLinks = document.querySelectorAll(".menu-link");
+        
+                // Функция для закрытия меню
+                function closeMenu() {
+                    menu.classList.add("hidden");
+                }
+        
+                // Закрытие при клике на кнопку
+                closeButton.addEventListener("click", closeMenu);
+        
+                // Закрытие при клике на любую ссылку
+                menuLinks.forEach(link => {
+                    link.addEventListener("click", closeMenu);
+                });
+            });
+        </script>
+        
+        
         </header>
       
-        <div class="relative isolate px-6 pt-14 lg:px-8">
+        <div id = "beginning" class="relative isolate px-6 pt-14 lg:px-8">
           <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
             <div class="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
           </div>
@@ -579,23 +601,23 @@
 	    <input type="hidden" name="_autoresponse" value="Спасибо! Ваше сообщение отправлено.">
 	    
 	    <div>
-	        <label for="name-2" class="mb-1 font-medium">
-	            Имя родителя
-	        </label>
-	        <input type="text" name="parent_name" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
-	    </div>
-	    <div class="mb-2">
-	        <label for="phone" class="mb-1 font-medium">
-	            Телефон
-	        </label>
-	        <input type="text" name="phone" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
-	    </div>
-	    <div class="mb-5 md:mb-6 lg:mb-8">
-	        <label for="email" class="mb-1 font-medium">
-	            Электронная почта
-	        </label>
-	        <input type="email" name="email" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
-	    </div>
+            <label for="name-2" class="mb-1 font-medium">
+                Имя родителя
+            </label>
+            <input type="text" name="parent_name" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
+        </div>
+        <div class="mb-2">
+            <label for="phone" class="mb-1 font-medium">
+                Телефон
+            </label>
+            <input type="text" name="phone" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
+        </div>
+        <div class="mb-5 md:mb-6 lg:mb-8">
+            <label for="country" class="mb-1 font-medium">
+                Страна
+            </label>
+            <input type="text" name="country" required class="mb-4 block h-9 w-full rounded-md border border-solid px-3 py-6 pl-4 text-sm text-black" />
+        </div>        
 	    <input type="submit" value="Отправить 💌" class="inline-block w-full cursor-pointer rounded-2xl bg-black px-6 py-3 text-center font-semibold text-white" />
 	</form>
 
@@ -613,6 +635,49 @@
 		</h2>
 	</div>
 	<div class="grid divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
+
+        <div class="py-5">
+			<details class="group">
+				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+					<span> Для кого наши курсы?</span>
+					<span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+</svg>
+              </span>
+				</summary>
+				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+					Наши курсы предназначены для детей от 6 до 12 лет. Но программу можно адаптировать под любой возраст в зависимости от уровня знаний ребенка. Если у вас есть вопросы или особые запросы, свяжитесь с нами — мы подберем оптимальный вариант обучения! 
+				</p>
+			</details>
+		</div>
+		<div class="py-5">
+			<details class="group">
+				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+					<span> Как проходят уроки?</span>
+					<span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+</svg>
+              </span>
+				</summary>
+				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+					Наши интерактивные онлайн-уроки проходят в реальном времени на видеоплатформах с преподавателем. Они включают игры, видео и задания. Продолжительность урока — 30 минут для младших детей и до 45 минут для старших.
+				</p>
+			</details>
+		</div>
+        <div class="py-5">
+			<details class="group">
+				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+					<span> Есть ли пробные уроки?</span>
+					<span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+</svg>
+              </span>
+				</summary>
+				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+					Да, мы предлагаем бесплатный первый урок, чтобы вы могли оценить наш подход и формат занятий. Чтобы записаться, заполните анкету на сайте или напишите нам в Instagram, WhatsApp или Telegram — мы подберем удобное время. 
+				</p>
+			</details>
+		</div>
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
@@ -628,34 +693,7 @@
 				</p>
 			</details>
 		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Помогаете ли вы ребенку с домашними заданиями по английскому языку, которые задают в школе?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					Мы не помогаем с домашними заданиями, потому что наша методика отличается от школьного подхода к преподаванию языка. Но наш педагог может помочь ребёнку разобраться со школьной программой. 
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Как можно наблюдать за прогрессом в обучении ребёнка?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					Отслеживать прогресс можно в личном кабинете. После каждого занятия там появляется отчёт о выполненной работе. А чтобы получить подробную обратную связь, вы можете обратиться к преподавателю в мессенджере. 
-				</p>
-			</details>
-		</div>
+		
 		<div class="py-5">
 			<details class="group">
 				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
@@ -684,6 +722,36 @@
 				</p>
 			</details>
 		</div>
+
+        
+        <div class="py-5">
+			<details class="group">
+				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+					<span> Как записаться на курс?</span>
+					<span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+</svg>
+              </span>
+				</summary>
+				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+					Чтобы записаться на курс, заполните анкету на сайте или напишите нам в Instagram, WhatsApp или Telegram. Мы подберем удобное время для занятий. 
+				</p>
+			</details>
+		</div>
+        <div class="py-5">
+			<details class="group">
+				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+					<span> Как проходит оплата курсов?</span>
+					<span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+</svg>
+              </span>
+				</summary>
+				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+					Для оплаты курсов доступны различные онлайн-методы. Выбирайте подходящий пакет занятий и начинайте обучение! 
+				</p>
+			</details>
+		</div>
 	</div>
 </div>
 
@@ -694,12 +762,12 @@
       <!-- Component -->
       <div id = "contacts" class="flex-col flex items-center">
         <a href="javascript:void(0);" class="mb-8 inline-block max-w-full text-black">
-            Курсы английского языка
+            LingoKids
           <!--<img src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a94d6f4e6cf96_Group%2047874-3.png" alt="" class="inline-block max-h-10" /> -->
         </a>
         <div class="text-center font-semibold">
           <a href="https://www.instagram.com/lingokids_school/" class="inline-block px-6 py-2 font-normal text-black transition hover:text-blue-600">
-            Про нашу школу
+            О нас
           </a>
           <a href="#faq" class="inline-block px-6 py-2 font-normal text-black transition hover:text-blue-600">
             FAQ
@@ -710,20 +778,23 @@
           <a href="#form" class="inline-block px-6 py-2 font-normal text-black transition hover:text-blue-600">
             Помощь
           </a>
+          <a href="#beginning" class="inline-block px-6 py-2 font-normal text-black transition hover:text-blue-600">
+            Главная
+          </a>
         </div>
         <div class="mb-8 mt-8 border-b border-gray-300 w-48"></div>
         <div class="mb-12 grid-cols-4 grid-flow-col grid max-w-52 gap-8 mx-auto">
           <a href="https://www.facebook.com/lingokidsschool" class="mx-auto flex-col flex max-w-6 items-center justify-center text-black">
-            <img src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a945b4ae6cf7b_Vector-1.svg" alt="" class="inline-block" />
+            <img src="facebook.png" alt="" class="inline-block" />
           </a>
           <a href="https://www.instagram.com/lingokids_school/" class="mx-auto flex-col flex max-w-6 items-center justify-center text-black">
-            <img src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a945560e6cf77_Vector.svg" alt="" class="inline-block" />
+            <img src="instagram.png" alt="" class="inline-block" />
           </a>
           <a href="https://wa.me/+821066789134?text=Здравствуйте. Хочу записаться на пробный урок!" class="mx-auto flex-col flex max-w-6 items-center justify-center text-black">
-            <img src="https://images.seeklogo.com/logo-png/16/2/whatsapp-logo-png_seeklogo-168310.png" alt="" class="inline-block" />
+            <img src="whatsapp.png" alt="" class="inline-block" />
           </a>
-          <a href="https://t.me/lingokids25" class="mx-auto flex-col flex max-w-6 items-center justify-center text-black">
-            <img src="https://cdn.creazilla.com/icons/3201902/telegram-icon-lg.png" alt="" class="inline-block" />
+          <a href="https://t.me/lingokids25?text=Здравствуйте. Хочу записаться на пробный урок!" class="mx-auto flex-col flex max-w-6 items-center justify-center text-black">
+            <img src="telegram.png" alt="" class="inline-block" />
           </a>
         </div>
         <p class="text-sm sm:text-base">
